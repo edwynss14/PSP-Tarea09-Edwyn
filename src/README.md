@@ -1,4 +1,4 @@
-# 🚀 Descargas Cuánticas - Gestor de Descargas Multihilo (PSP) Edwyn Lezama Rodríguez
+# Descargas Cuánticas - Gestor de Descargas Multihilo (PSP) Edwyn Lezama Rodríguez
 
 # Documentación y pruebas
 
