@@ -20,9 +20,15 @@ esto se debe a que hemos roto la concurrencia.
 
 
 problemas de instalador en el main, colocación pregunta a chatgpt le pasé lo que imprimía en pantalla y código
+
+Prompt:
+
 /home/edwyn/.jdks/openjdk-27/bin/java -javaagent:/home/edwyn/.local/share/JetBrains/Toolbox/apps/intellij-idea/lib/idea_rt.jar=35299 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /home/edwyn/IdeaProjects/Descargas_cuanticas/out/production/Descargas_cuanticas GestorDescargas
+
 Iniciando...
+
 [Instalador] Meditación y mantras listos: instalando...
+
 [Monitor] Descargas en curso: 4
 [meditacion.mp4] 10%
 [mantras.mp3] 10%
