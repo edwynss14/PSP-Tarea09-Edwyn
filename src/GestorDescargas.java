@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class GestorDescargas {
     public static void main(String[] args){
         System.out.println("Iniciando...");
@@ -7,19 +9,25 @@ public class GestorDescargas {
         Descarga desc3 = new Descarga("cuarzo.png");
         Descarga desc4 = new Descarga("mantras.mp3");
 
+        List<Descarga> listaDescargas = List.of(desc1, desc2, desc3, desc4);
+        Monitor monitor = new Monitor(listaDescargas);
+        Thread hiloMonitor = new Thread(monitor);
+
         long tiempoI = System.currentTimeMillis();
         try {
             desc1.start();
-            desc1.join();
-
             desc2.start();
-            desc2.join();
-
             desc3.start();
-            desc3.join();
-
             desc4.start();
+
+            hiloMonitor.start();
+
+            desc1.join();
+            desc2.join();
+            desc3.join();
             desc4.join();
+
+            hiloMonitor.join();
         } catch (InterruptedException e){
             System.out.println("La descarga fue interrumpida");
         }
@@ -34,5 +42,6 @@ public class GestorDescargas {
         System.out.println("[" + desc4.getName() + "] completada en: " + desc4.getTiempoTotal() + "ms");
         System.out.println("Tiempo real: " + tiempoR + "ms");
         System.out.println("El total de ms de los archivos es: " + msAcumulados);
+
     }
 }
