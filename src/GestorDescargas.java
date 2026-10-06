@@ -8,15 +8,17 @@ public class GestorDescargas {
         Descarga desc4 = new Descarga("mantras.mp3");
 
         long tiempoI = System.currentTimeMillis();
-
-        desc1.start();
-        desc2.start();
-        desc3.start();
-        desc4.start();
         try {
+            desc1.start();
             desc1.join();
+
+            desc2.start();
             desc2.join();
+
+            desc3.start();
             desc3.join();
+
+            desc4.start();
             desc4.join();
         } catch (InterruptedException e){
             System.out.println("La descarga fue interrumpida");
