@@ -12,6 +12,9 @@ public class GestorDescargas {
         List<Descarga> listaDescargas = List.of(desc1, desc2, desc3, desc4);
         Monitor monitor = new Monitor(listaDescargas);
         Thread hiloMonitor = new Thread(monitor);
+        List<Descarga> listaInstalador = List.of(desc1, desc4);
+        Instalador instalador = new Instalador(listaInstalador);
+        Thread hiloInstalador = new Thread(instalador);
 
         long tiempoI = System.currentTimeMillis();
         try {
@@ -19,15 +22,21 @@ public class GestorDescargas {
             desc2.start();
             desc3.start();
             desc4.start();
-
+            hiloInstalador.start();
             hiloMonitor.start();
 
-            desc1.join();
+            desc1.join(3000);
+            if(desc1.isAlive()){
+                System.out.println("[Main] meditacion.mp4 sigue en segundo plano");
+            }
             desc2.join();
             desc3.join();
             desc4.join();
 
             hiloMonitor.join();
+
+            hiloInstalador.join();
+
         } catch (InterruptedException e){
             System.out.println("La descarga fue interrumpida");
         }
